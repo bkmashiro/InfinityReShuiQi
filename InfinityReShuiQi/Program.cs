@@ -17,10 +17,10 @@
         public bool CrackKeyA()
         {
             byte[] curKey = new byte[6];
-            byte[] serial = new byte[4];
+            byte[] serialNo = new byte[4];
             byte[] data = new byte[48];
             byte controlWord = IC.BLOCK0_EN | IC.BLOCK1_EN | IC.BLOCK2_EN | IC.EXTERNKEY; 
-            byte areaNo = 10;
+            byte sectorNo = 10;
             byte authMode = 1;
 
             // a sector has 6B
@@ -36,7 +36,7 @@
 
                 curKey[0] = i0; curKey[1] = i1; curKey[2] = i2; curKey[3] = i3; curKey[4] = i4; curKey[5] = i5;
 
-                byte status = IC.piccreadex(controlWord, serial, areaNo, authMode, curKey, data);
+                byte status = IC.piccreadex(controlWord, serialNo, sectorNo, authMode, curKey, data);
                 _ = logger.LogAsync($"Key {i:X} status {status}");
                 switch (status)
                 {
