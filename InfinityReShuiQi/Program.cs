@@ -12,14 +12,14 @@
 
     class Cracker
     {
-        Logger logger = new("./YuanShenQiDong.log");
+        readonly Logger logger = new($"./infinityWater-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.log");
 
         public bool CrackKeyA()
         {
             byte[] curKey = new byte[6];
             byte[] serialNo = new byte[4];
             byte[] data = new byte[48];
-            byte controlWord = IC.BLOCK0_EN | IC.BLOCK1_EN | IC.BLOCK2_EN | IC.EXTERNKEY; 
+            byte controlWord = IC.BLOCK0_EN | IC.BLOCK1_EN | IC.BLOCK2_EN | IC.EXTERNKEY;
             byte sectorNo = 10;
             byte authMode = 1;
 
