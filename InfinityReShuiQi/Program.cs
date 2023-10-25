@@ -8,8 +8,6 @@
             cracker.CrackKeyA();
 
         }
-
-        
     }
 
     class Cracker

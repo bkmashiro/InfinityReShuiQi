@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace InfinityReShuiQi
 {
+    /*
+     * This code is modified from IC Card Reader (www.acs.com.hk)
+     */
     public class IC
     {
         //常量定义
