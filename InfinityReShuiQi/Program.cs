@@ -19,12 +19,13 @@
             byte[] curKey = new byte[6];
             byte[] serial = new byte[4];
             byte[] data = new byte[48];
-            byte controlWord = IC.BLOCK0_EN + IC.BLOCK1_EN + IC.BLOCK2_EN + IC.EXTERNKEY;
+            byte controlWord = IC.BLOCK0_EN | IC.BLOCK1_EN | IC.BLOCK2_EN | IC.EXTERNKEY; 
             byte areaNo = 10;
             byte authMode = 1;
 
-            // 00 00 00 00 00 00
-            for (long i = 0; i <= 0xFF_FF_FF_FF_FF_FF; i++)
+            // a sector has 6B
+            // enumerate every possible combination.
+            for (long i = 0x00_00_00_00_00_00; i <= 0xFF_FF_FF_FF_FF_FF; i++)
             {
                 byte i0 = (byte)((i >> 050) & 0xFF);
                 byte i1 = (byte)((i >> 040) & 0xFF);
